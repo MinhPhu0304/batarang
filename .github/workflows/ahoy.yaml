@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
-      - uses: dcodeIO/setup-node-nvm@master
+      - uses: actions/setup-node@v3
         with:
-          node-version: 0.6.9
-      - run: yarn && yarn build
+          node-version: '6.x'
+      - run: yarn install --ignore-engines && yarn build
       - run: zip -r batarang.zip .
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
