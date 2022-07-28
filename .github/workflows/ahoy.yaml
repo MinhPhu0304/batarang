@@ -12,10 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 0.6.9
-          architecture: 'x86'
+      - run: wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+      - run: nvm install 0.6.9
       - run: yarn && yarn build
       - run: zip -r batarang.zip .
       - uses: "marvinpinto/action-automatic-releases@latest"
