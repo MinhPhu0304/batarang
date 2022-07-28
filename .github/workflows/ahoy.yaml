@@ -1,0 +1,25 @@
+name: "Dumbster fire"
+
+on:
+  push:
+    branches:
+      - master
+      - 'releases/**'
+
+jobs:
+  release:
+    name: "Release the kraken"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 0.6.9
+      - run: yarn && yarn build
+      - run: zip -r batarang.zip .
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            *.zip
