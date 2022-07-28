@@ -13,8 +13,7 @@ jobs:
 
     steps:
       - run: wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash 
-      - run: export NVM_DIR="$HOME/.nvm"
-      - run: nvm install 0.6.9
+      - run: export NVM_DIR="$HOME/.nvm" && nvm install 0.6.9
       - run: yarn && yarn build
       - run: zip -r batarang.zip .
       - uses: "marvinpinto/action-automatic-releases@latest"
