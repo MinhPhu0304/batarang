@@ -12,7 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash | export NVM_DIR="$HOME/.nvm"
+      - run: wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash 
+      - run: export NVM_DIR="$HOME/.nvm"
       - run: nvm install 0.6.9
       - run: yarn && yarn build
       - run: zip -r batarang.zip .
