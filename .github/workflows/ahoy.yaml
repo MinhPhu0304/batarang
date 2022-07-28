@@ -9,7 +9,7 @@ on:
 jobs:
   release:
     name: "Release the kraken"
-    runs-on: ubuntu-latest
+    runs-on: macos-10.15
 
     steps:
       - uses: dcodeIO/setup-node-nvm@master
