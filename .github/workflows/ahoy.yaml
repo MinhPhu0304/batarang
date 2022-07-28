@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v2
         with:
-          node-version: 0.6.9
+          node-version: 0.6.21
       - run: yarn && yarn build
       - run: zip -r batarang.zip .
       - uses: "marvinpinto/action-automatic-releases@latest"
